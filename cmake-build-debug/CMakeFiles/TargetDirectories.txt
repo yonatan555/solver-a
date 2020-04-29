@@ -1,0 +1,3 @@
+/home/yonatan/CLionProjects/solver-a/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/yonatan/CLionProjects/solver-a/cmake-build-debug/CMakeFiles/solver_a.dir
+/home/yonatan/CLionProjects/solver-a/cmake-build-debug/CMakeFiles/edit_cache.dir

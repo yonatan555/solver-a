@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/solver_a.dir/Demo.cpp.o CMakeFiles/solver_a.dir/solver.cpp.o CMakeFiles/solver_a.dir/TestCounter.cpp.o  -o solver_a 
