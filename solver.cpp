@@ -23,10 +23,33 @@ RealVariable& solver:: operator^(solver::RealVariable& x, int num){
        k->c = 1;
    }else throw std::invalid_argument("there is no pow up to 2");
     return *k;
+}RealVariable& solver:: operator^(double num ,solver::RealVariable& x){
+   RealVariable *k = new RealVariable();
+   if(num == 2 ){
+       k->a= 1 ;
+       k->b=  0 ;
+       k->c = 0 ;
+
+   }else if ( num == 1 ){
+       k->a = 0 ;
+       k->b = 1;
+       k->c = 0;
+   } else if (num == 0 ){
+       k->a=  0 ;
+       k->b = 0 ;
+       k->c = 1;
+   }else throw std::invalid_argument("there is no pow up to 2");
+    return *k;
 }
 RealVariable& solver::operator*(double num, solver::RealVariable x){
    RealVariable* n = new RealVariable() ;
     n->b = num * x.b;
+   return *n;
+}
+RealVariable& solver::operator*(solver::RealVariable y, solver::RealVariable x){
+   RealVariable* n = new RealVariable() ;
+    n->a = x.a+y.a;
+    n->b =   x.b;
    return *n;
 }
 RealVariable& solver::operator*( solver::RealVariable x,double num){
