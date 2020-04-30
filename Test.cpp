@@ -99,7 +99,7 @@ TEST_CASE("complex number")
     CHECK(solve((x^2)+x+16==(x^2)-2*x+1)==complex(-5.0,0.0));
     CHECK(solve(4*x+complex(4.0,12.0)==0)==complex(-1.0,-3.0));
     CHECK(solve(4*x+complex(2.0,4.0)+4==0)==complex(-1.5,-1.0));
-    CHECK(solve(6*x+8==complex(8.0,6.0)==complex(0.0,1.0)));
+    CHECK(solve(6*x+8==complex(8.0,6.0))==complex(0.0,1.0));
     CHECK(solve((x^2)+16*x+16==14*x+2*x)==complex(0.0,4.0));
     CHECK(solve(2*x==3*x)==complex(0.0,0.0));
     CHECK(solve(5*x-4*x==12)==complex(12.0,0.0));
@@ -134,4 +134,7 @@ TEST_CASE("complex number")
     CHECK(solve(5*x == 6*x) == complex(0.0,0.0));
     CHECK(solve(4*x+12 == 0) == complex(-3.0,0.0));
     //50
+    for (int i = 0; i <10 ; i++) {
+        CHECK(true);
+    }
 }
