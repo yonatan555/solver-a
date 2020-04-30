@@ -57,6 +57,7 @@ RealVariable& solver::operator==(double num,solver::RealVariable x){
 }
 RealVariable& solver::operator/(solver::RealVariable x,double num){
     RealVariable* n = new RealVariable();
+    if(num == 0)throw std::invalid_argument("cant diving by 0");
     n->a=x.a/num;
     n->b=x.b/num;
     n->c=x.c/num;
@@ -106,6 +107,7 @@ RealVariable& solver::operator-(solver::RealVariable x, double y) {
 }
 double solver::solve(RealVariable x){
     if(x.a==0){
+        if(x.b == 0 ) throw std::invalid_argument("cant diving by 0");
         double ans = -(x.c)/x.b;
         return ans;
     }
@@ -124,7 +126,6 @@ double solver::solve(RealVariable x){
     }
     return 0.0;
 }
-
 solver::ComplexVariable::ComplexVariable():a(0.0,0.0),b(1.0,0.0),c(0.0,0.0) {}
 ComplexVariable& solver::operator*(complex<double>  num, solver::ComplexVariable x){
     ComplexVariable* n = new ComplexVariable() ;
@@ -154,7 +155,6 @@ ComplexVariable& solver::operator^(solver::ComplexVariable x, int num){
     else throw std::invalid_argument("there is no pow up to 2");
     return *k;
 }
-
 ComplexVariable& solver::operator+(solver::ComplexVariable x, complex<double>  y) {
     ComplexVariable* n = new ComplexVariable() ;
     n->a=x.a;
@@ -185,6 +185,7 @@ ComplexVariable& solver::operator==(solver::ComplexVariable x, complex<double>  
 }
 ComplexVariable& solver::operator/(solver::ComplexVariable  x,double num){
     ComplexVariable* n = new ComplexVariable();
+    if(num == 0 ) throw std::invalid_argument("cant diving by 0");
     n->a=x.a/num;
     n->b=x.b/num;
     n->c=x.c/num;
@@ -228,6 +229,7 @@ ComplexVariable& solver::operator==(complex<double> y,solver::ComplexVariable x)
 complex<double> solver::solve(ComplexVariable x) {
     complex<double> ans;
     if (x.a == 0.0) {
+        if(x.b == 0.0) throw std::invalid_argument("cant diving by 0");
         ans = -(x.c) / x.b;
         return ans;
     } else if (x.a != 0.0) {
