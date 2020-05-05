@@ -124,7 +124,7 @@ TEST_CASE("complex number")
 
     CHECK_THROWS(solve(2*(x^222)-6==6));
     CHECK_THROWS(solve(2*(x^22)*6==12));
-    CHECK_THROWS(solve((x^311)+complex(6.0,0.0)==0)==complex(-6.0,0.0));
+    CHECK_THROWS(solve((x^311)+complex(6.0,0.0)==0) );
     CHECK_THROWS(solve(2*x-2*x+2-2==0));
     CHECK_THROWS(solve(2*x+4+complex(-3.0,-3.0)+(x^2)+(x^2)==complex(-3.0,-3.0)+(x^2)+(x^2)));
     CHECK_THROWS(solve((x^222)+4+complex(-2.0,-2.0)==0));
