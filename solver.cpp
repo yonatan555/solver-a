@@ -6,13 +6,12 @@
 using namespace solver;
 solver::RealVariable::RealVariable():a(0),b(1),c(0) {}
 solver::RealVariable::RealVariable(double num1,double num2,double num3):a(num1),b(num2),c(num3){}
-RealVariable& solver:: operator^(solver::RealVariable& x, int num){
+RealVariable& solver::operator^(solver::RealVariable x, int num){
    RealVariable *k = new RealVariable();
    if(num == 2 ){
        k->a= 1 ;
        k->b=  0 ;
        k->c = 0 ;
-
    }else if ( num == 1 ){
        k->a = 0 ;
        k->b = 1;
@@ -23,23 +22,9 @@ RealVariable& solver:: operator^(solver::RealVariable& x, int num){
        k->c = 1;
    }else throw std::invalid_argument("there is no pow up to 2");
     return *k;
-}RealVariable& solver:: operator^(double num ,solver::RealVariable& x){
-   RealVariable *k = new RealVariable();
-   if(num == 2 ){
-       k->a= 1 ;
-       k->b=  0 ;
-       k->c = 0 ;
-
-   }else if ( num == 1 ){
-       k->a = 0 ;
-       k->b = 1;
-       k->c = 0;
-   } else if (num == 0 ){
-       k->a=  0 ;
-       k->b = 0 ;
-       k->c = 1;
-   }else throw std::invalid_argument("there is no pow up to 2");
-    return *k;
+}
+RealVariable& solver::operator^(double num ,solver::RealVariable x){
+    throw std::invalid_argument("there is no pow up to 2");
 }
 RealVariable& solver::operator*(double num, solver::RealVariable x){
    RealVariable* n = new RealVariable() ;
@@ -49,7 +34,9 @@ RealVariable& solver::operator*(double num, solver::RealVariable x){
 RealVariable& solver::operator*(solver::RealVariable y, solver::RealVariable x){
    RealVariable* n = new RealVariable() ;
     n->a = x.a+y.a;
+    if(x.a+y.a > 2) throw std::invalid_argument("there is no pow up to 2");
     n->b =   x.b;
+    n->c =   x.c;
    return *n;
 }
 RealVariable& solver::operator*( solver::RealVariable x,double num){

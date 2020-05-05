@@ -29,12 +29,12 @@ namespace solver {
 
         friend RealVariable& operator*(double x, RealVariable y);
         friend RealVariable& operator*( RealVariable y, double x);
-        friend RealVariable& operator*( RealVariable y, RealVariable x);//**
+        friend RealVariable& operator*( RealVariable y, RealVariable x);
 
         friend RealVariable& operator/(RealVariable y,double x);
 
-        friend RealVariable& operator^(RealVariable &x, int num);
-        friend RealVariable& operator^(double num ,RealVariable &x);//*
+        friend RealVariable& operator^(RealVariable x, int num);
+        friend RealVariable& operator^(double num ,RealVariable x);//*
        // friend RealVariable& operator^(double x, int num);//**
 
         friend RealVariable& operator==(RealVariable x, RealVariable y);
@@ -58,7 +58,7 @@ namespace solver {
 
         friend ComplexVariable& operator*(complex<double> x, ComplexVariable y);
         friend ComplexVariable& operator*(ComplexVariable x,complex<double> num);
-        friend ComplexVariable& operator*(ComplexVariable x,ComplexVariable y);//*
+       // friend ComplexVariable& operator*(ComplexVariable x,ComplexVariable y);//*
 
         friend ComplexVariable& operator-(ComplexVariable x, complex<double> y);
         friend ComplexVariable& operator-(ComplexVariable x, ComplexVariable y);
